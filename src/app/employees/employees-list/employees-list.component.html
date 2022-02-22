@@ -1,0 +1,21 @@
+<div>
+  <input type="text" placeholder="search" (keyup)="filterKeyUp($event)"/>
+</div>
+
+<ng-container *ngIf="employees$ | async; let employees else loading">
+  <div *ngIf="employees.length === 0">
+    none found.
+  </div>
+  <table>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td><a [routerLink]="[employee.id]">Select</a></td>
+    </tr>
+  </table>
+</ng-container>
+
+<a [routerLink]="['..']">back</a>
+<ng-template #loading>
+  loading...
+</ng-template>

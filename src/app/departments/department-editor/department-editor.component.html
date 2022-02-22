@@ -1,0 +1,63 @@
+<ng-container *ngIf="department$ | async; let department else loading">
+  <form (ngSubmit)="onSave(modelForm)" #modelForm="ngForm">
+    <h3>edit {{department.name}} department</h3>
+    <br/>
+    <label for="name" style="width: 100px; display: inline-block">Name</label>
+    <input id="name" name="name" type="text" minlength="3" maxlength="10" required
+           [(ngModel)]="department.name"
+           #name="ngModel"/>
+    <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+      <span *ngIf="name.errors && name.errors['required']">
+          Must have value
+      </span>
+      <span *ngIf="name.errors && name.errors['minlength']">
+          Must be at least 3 characters long
+      </span>
+      <span *ngIf="name.errors && name.errors['maxlength']">
+          Must be at most 10 characters long
+      </span>
+    </ng-container>
+    <br/>
+    <label for="budget" style="width: 100px; display: inline-block">Budget:</label>
+    <input id="budget" name="budget" type="number" required min="10000" max="1000000"
+           [(ngModel)]="department.budget"
+           #budget="ngModel">
+    <ng-container *ngIf="budget.invalid && (budget.dirty || budget.touched)">
+      <span *ngIf="budget.errors && budget.errors['required']">
+          Must have value
+      </span>
+      <span *ngIf="budget.errors && budget.errors['min']">
+          Must be grater or equal to 10000
+      </span>
+      <span *ngIf="budget.errors && budget.errors['max']">
+          Must be smaller or equal to 1000000
+      </span>
+    </ng-container>
+    <br/>
+    <label for="managerId" style="width: 100px; display: inline-block">Manager:</label>
+    <select id="managerId" name="managerId" required
+            [(ngModel)]="department.managerId"
+            #managerId="ngModel">
+      <option *ngFor="let employee of department.employees"
+              [value]="employee.id" [selected]="employee.id === department.managerId">
+        {{employee.firstName}} {{employee.lastName}}
+      </option>
+    </select>
+    <ng-container *ngIf="managerId.invalid && (managerId.dirty || managerId.touched)">
+      <span *ngIf="managerId.errors && managerId.errors['required']">
+          Must have value
+      </span>
+    </ng-container>
+    <input type="hidden" id="id" name="id" [(ngModel)]="department.id"/>
+    <input type="hidden" id="employees" name="employees" [(ngModel)]="department.employees"/>
+    <br/>
+    <button type="submit" [disabled]="!modelForm.form.valid || !modelForm.form.dirty">Save</button>
+    <button type="button" [disabled]="!modelForm.form.dirty" (click)="onCancel(modelForm)">Cancel</button>
+    <button type="button" [routerLink]="['..']">Back</button>
+  </form>
+</ng-container>
+
+<ng-template #loading>
+  <h3>Edit Department</h3>
+  loading...
+</ng-template>

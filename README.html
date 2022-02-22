@@ -1,0 +1,239 @@
+<html>
+<header>
+  <style>
+    body {
+      font-family: sans-serif;
+      /*width: 800px;*/
+      color: #303030;
+      line-height: 1.5em;
+    }
+
+    code {
+      background-color: #dddddd;
+      padding: 2px;
+      font-family: monospace;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol.test-tasks > li {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .functional-requirements {
+      font-size: smaller;
+      padding: 10px;
+      color: #505050;
+      line-height: 1.5em;
+      border: 1px solid #e0e0e0;
+      list-style: none;
+    }
+
+    a {
+      cursor: pointer;
+      color: #44f
+    }
+
+    .description {
+      padding: 10px;
+      background-color: #eee;
+    }
+
+    img {
+      width: 100%;
+      /*cursor: pointer;*/
+    }
+  </style>
+  <script>
+    function show(id) {
+      document.getElementById(id).style.display = "block";
+      document.getElementById(id + "-hide").style.display = "inline";
+      document.getElementById(id + "-show").style.display = "none";
+    }
+
+    function hide(id) {
+      document.getElementById(id).style.display = "none";
+      document.getElementById(id + "-hide").style.display = "none";
+      document.getElementById(id + "-show").style.display = "inline";
+    }
+  </script>
+</header>
+<body>
+
+<h2>UI/UX Developer Interview Test</h2>
+
+<h3>Quick Guide</h3>
+<ul>
+  <li>You will receive access on a repository to be used exclusively by you.</li>
+  <li>You will be able to clone the repository and push new commits for 2 weeks. The exact expiration date will be
+    confirmed when the repository URL will be provided.
+  </li>
+  <li>The repository contains all the material required for the test, including an existing project with some minimal
+    functionality.
+  </li>
+  <li>You must install additional software on your local machine (see next section below).</li>
+</ul>
+<h4>Project Setup</h4>
+<ol>
+  <li><a href="https://git-scm.com/downloads">Download</a> and install Git on the local machine.</li>
+  <li>Clone the interview test repository locally.
+    <ul>
+      <li>Open a terminal window in the directory where you want to clone the repository.</li>
+      <li>Run command <code>git clone `url`</code> (the URL will be provided)</li>
+    </ul>
+  </li>
+  <li><a href="https://nodejs.org/dist/v14.17.0/">Download</a> and install NodeJS 14.17 on the local machine. If you
+    already have another version installed, you may try to run the project without changing it to 14.17.0 but please
+    consider that the existing project has only been tested with this version.
+  </li>
+  <li>In the cloned repository directory run the following commands in a terminal window.
+    <ul>
+      <li><code>npm install</code> to install npm package dependencies.</li>
+      <li><code>npm run start</code> to start the application.</li>
+    </ul>
+  </li>
+  <li>Navigate to <a href="http://localhost:4200">http://localhost:4200</a> in the browser. The application should be up
+    and running.
+  </li>
+  <li>To stop the application press <code>Ctrl + C</code> in the terminal window and follow confirmation instructions.
+  </li>
+</ol>
+
+Worthy Notes:
+<ul>
+  <li>The existing project was generated with Angular CLI version 13.2.3.</li>
+  <li>Modifying existing files would trigger a live reload of the application.</li>
+  <li>Adding or removing files could require a restart by stopping the application and running `npm run start` again.
+  </li>
+</ul>
+
+<h4>Commit & Push Changes</h4>
+<ol>
+  <li>Open a terminal window in the cloned repository directory.</li>
+  <li>Run <code>git add -A</code></li>
+  <li>Run <code>git commit -am '[comment]'</code></li>
+  <li>Run <code>git push</code></li>
+</ol>
+
+<h3>2. Tasks</h3>
+<ol class="test-tasks">
+  <li>Update the UI for the existing functionality on the Angular CLI project. Style, clean and refactor as needed.
+    Allow the user to switch between two themes (light/dark). The application can be modified in any way possible if the
+    following requirements are still fulfilled:
+    <ul class="functional-requirements">
+      <li>Organization
+        <ul>
+          <li>Must be able to select an organization.</li>
+          <li>Must be able to change the selected organization.</li>
+        </ul>
+      </li>
+      <li>Departments
+        <ul>
+          <li>Must be able to view a list of existing departments inside the selected organization.</li>
+          <li>Must be able to search departments by name in the list of existing departments.</li>
+          <li>Must be able to view department details.</li>
+          <li>Must be able to edit department details.</li>
+          <li>Must include, as department details, a name, a manager, an annual budget and a list of employees.</li>
+        </ul>
+      </li>
+      <li>Employees
+        <ul>
+          <li>Must be able to see the list of existing employees inside the selected organization.</li>
+          <li>Must be able to search employees by name in the list of existing employees.</li>
+          <li>Must be able to view employee details.</li>
+          <li>Must include, as employee details, the first name, the last name, the hired date, the age and the salary.
+          </li>
+          <li>Could include, as employee details an image of the employee.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Create story boards, mocks or other assets that help illustrate the UI/UX with the functionality to be added:
+    <ul class="functional-requirements">
+      <li>Must be able to add a new organization.</li>
+      <li>Must always have a name entered for newly added organizations.</li>
+      <li>Must be able to add a new department.</li>
+      <li>Must be able to add a new employee.</li>
+      <li>Must allow to the possibility to create a new organization along with its departments and their employees in
+        one action instead of creating one level at a time. This could be associated with a wizard like control.
+      </li>
+    </ul>
+  </li>
+  <li>Implement the functional UI/UX prototype for the functionality that allows the user to create a new organization
+    with departments and employees in one action.
+  </li>
+  <li>Provide design feedback for several screenshots of complex functionality that is briefly described. Consider what
+    is done well and what can be improved. Check next section for details.
+  </li>
+</ol>
+
+<h3>3. UI/UX Feedback Resources</h3>
+Each screenshot is given a context and two descriptions. The descriptions are hidden by default so that will not
+influence you in this process from the beginning. Please write any feedback in the files located in
+<i>[repository]/task_4/</i> directory.
+<ol>
+  <li><b>EMCIP - Map Feature</b><br/>
+    <div>
+      <p>Context: EMCIP is a tool that helps gathering and aggregating data related to maritime incidents.</p>
+      <div>
+        Short Description:
+        <a id="01-bd-show" onclick="show('01-bd')">[show]</a>
+        <a id="01-bd-hide" onclick="hide('01-bd')" style="display: none">[hide]</a>
+        <p class="description" id="01-bd" style="display: none">The screenshot represents the map feature which allows
+          the users to show recorded incidents on the map, filter them and apply various map features.</p>
+      </div>
+      <div>
+        More Description:
+        <a id="01-dd-show" onclick="show('01-dd')">[show]</a>
+        <a id="01-dd-hide" onclick="hide('01-dd')" style="display: none">[hide]</a>
+        <p class="description" id="01-dd" style="display: none">The screenshot represents the map feature which allows
+          the users to show recorded incidents on the map, filter them and apply various map features. The filtering of
+          the incidents can be done using logical conditions and are displayed on the left panel. These conditions can
+          be saved, named, tagged, shared and reused. The screenshot contains 3 areas that are displayed on the map and
+          help filtering the occurrences to the area inside them. On the right side of the screenshot there are the map
+          features options and the legends associated with them. The traffic density feature also contains some region
+          and time options also displayed on the rights side.</p>
+      </div>
+    </div>
+    <br/>
+    <a href="task_4/01.PNG" target="_blank"><img src="task_4/01.PNG"></a>
+  </li>
+  <li><b>SkyRoster - Template Feature</b><br/>
+    <div>
+      <p>Context: SkyRoster is a tool that solves workforce planning and scheduling problems for
+        ATCOs (Air Traffic Controller).</p>
+      <div>
+        Short Description:
+        <a id="02-bd-show" onclick="show('02-bd')">[show]</a>
+        <a id="02-bd-hide" onclick="hide('02-bd')" style="display: none">[hide]</a>
+        <p class="description" id="02-bd" style="display: none">The screenshot represents the template feature which
+          allows users to generate shift schedules for specific man power requirements and apply different
+          transformation features on different views.</p>
+      </div>
+      <div>
+        More Description:
+        <a id="02-dd-show" onclick="show('02-dd')">[show]</a>
+        <a id="02-dd-hide" onclick="hide('02-dd')" style="display: none">[hide]</a>
+        <p class="description" id="02-dd" style="display: none">The screenshot represents the template feature which
+          allows the users to generate draft schedules based multiple constraints configurations
+          for analyzing different scenarios, KPIs and outcomes.Each shift can have multiple events such as Leaves,
+          Duties or Suspensions, Preferred working days and the actual shift. Shifts can be of multiple type with
+          different starting hours (morning, afternoon, night). At the bottom of the page it is displayed the status of
+          the required resources compared with the actual allocated resources, grouped by qualification and then by
+          shift type. At the top of the shift's table there are three scores (hard, unassigned shifts, soft) which
+          represent the total score of the solution. Employees are assigned based on the team's shift in the respective
+          day (Approach Control Unit 3 in the picture). The upper-right side contain multiple selects with different
+          actions for modifying the requirements, the shifts, the constraints or the settings of the template (period,
+          resources).
+        </p>
+      </div>
+    </div>
+    <br/>
+    <a href="task_4/02.PNG" target="_blank"><img src="task_4/02.PNG"></a>
+  </li>
+</ol>
+</body>
+</html>
