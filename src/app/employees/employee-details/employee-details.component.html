@@ -1,0 +1,12 @@
+<ng-container *ngIf="employee$ | async; let employee else loading">
+  <h2>{{employee.firstName}} {{employee.lastName}}</h2>
+  <img src="" style="width: 200px; height: 200px">
+  <br/>Hired: {{employee.hiredDate | date}}
+  <br/>Age: {{employee.age}}
+  <br/>Salary: {{employee.salary | currency:'EUR' }}
+</ng-container>
+
+<a [routerLink]="['..']">back</a>
+<ng-template #loading>
+  loading...
+</ng-template>

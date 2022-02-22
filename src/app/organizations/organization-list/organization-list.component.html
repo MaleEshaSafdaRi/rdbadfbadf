@@ -1,0 +1,10 @@
+<p>Welcome to your organizations management tool.</p>
+<p>Please select an organization:</p>
+<ng-container *ngIf="organizations$ | async; let organizations">
+  <table>
+    <tr *ngFor="let organization of organizations">
+      <td>{{organization.name}}</td>
+      <td><a [routerLink]="[organization.id]">Select</a></td>
+    </tr>
+  </table>
+</ng-container>

@@ -1,0 +1,25 @@
+<ng-container *ngIf="department$ | async; let department else loading">
+  <h2>{{department.name}}</h2>
+  <br/>Manager:
+  <ng-container *ngFor="let employee of department.employees">
+    <ng-container *ngIf="employee.id === department.managerId">
+      {{employee.firstName }}  {{employee.lastName }}
+    </ng-container>
+  </ng-container>
+  <br/>Annual Budget: {{department.budget | currency:'EUR' }}
+  <br/>
+  <br/>
+  <table>
+    <tr>
+      <td>Employees:</td>
+      <td>{{department.employees.length}}</td>
+      <td><a [routerLink]="['employees']">view</a></td>
+    </tr>
+  </table>
+  <a [routerLink]="['..']">back</a>
+  <a [routerLink]="['edit']">edit</a>
+</ng-container>
+
+<ng-template #loading>
+  loading...
+</ng-template>

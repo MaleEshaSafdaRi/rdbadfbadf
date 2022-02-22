@@ -1,0 +1,15 @@
+<ng-container *ngIf="organization$ | async; let organization else loading">
+  <h2>{{organization.name}}</h2>
+  <table>
+    <tr>
+      <td>Departments:</td>
+      <td>{{organization.departments.length}}</td>
+      <td><a [routerLink]="['departments']">view</a></td>
+    </tr>
+  </table>
+</ng-container>
+
+<a [routerLink]="['..']">change organization</a>
+<ng-template #loading>
+  loading...
+</ng-template>
